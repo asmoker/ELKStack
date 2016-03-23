@@ -1,0 +1,13 @@
+version: '2'
+services:
+  filebeat:
+    image: olinicola/filebeat:1.0.1 
+    container_name: filebeat 
+    restart: always
+    network_mode: "bridge"
+    extra_hosts:
+      - "logstash:127.0.0.1"
+    volumes:
+      - ./conf/filebeat.yml:/etc/filebeat/filebeat.yml
+      - /data/logs:/data/logs
+      - /var/log:/var/host/log

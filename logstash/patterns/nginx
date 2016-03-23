@@ -1,0 +1,5 @@
+NGUSERNAME [a-zA-Z\.\@\-\+_%]+
+NGUSER %{NGUSERNAME}
+NGINXACCESS %{IPORHOST:clientip} - %{NOTSPACE:remote_user} \[%{HTTPDATE:timestamp}\] \"(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})\" %{NUMBER:response} (?:%{NUMBER:bytes}|-) %{QS:referrer} %{QS:agent} %{NOTSPACE:http_x_forwarded_for} %{QS:http_host} %{QS:upstream_addr} %{NUMBER:request_time} (?:%{NUMBER:upstream_response_time}|-)
+NGX_ERR_DATE_TIME %{YEAR}/%{MONTHNUM}/%{MONTHDAY} %{TIME}
+NGINXERROR %{NGX_ERR_DATE_TIME:timestamp} \[%{LOGLEVEL:level}\] %{POSINT:pid}#%{NUMBER}: \*%{NUMBER} %{GREEDYDATA:error_msg}

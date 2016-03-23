@@ -1,0 +1,12 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:2.2.0
+    container_name: elasticsearch 
+    restart: always
+    network_mode: "bridge"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+       - ./data:/usr/share/elasticsearch/data

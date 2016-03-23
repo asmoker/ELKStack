@@ -1,0 +1,17 @@
+version: '2'
+services:
+  logstash:
+    image: logstash:2.2.0-1
+    container_name: logstash 
+    restart: always
+    network_mode: "bridge"
+    ports:
+      - "5044:5044"
+      - "4560:4560"
+      - "8080:8080"
+    volumes:
+      - ./conf:/config-dir
+      - ./patterns:/opt/logstash/patterns
+    external_links:
+      - elasticsearch:elasticsearch
+    command: logstash -f /config-dir

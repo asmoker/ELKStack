@@ -1,0 +1,30 @@
+filebeat:
+  prospectors:
+    -
+      paths:
+          - /data/logs/nginx/access.log
+      document_type: nginx-access
+    -
+      paths:
+          - /data/logs/nginx/error.log
+      document_type: nginx-error
+    -
+      paths:
+          - /var/host/log/messages*
+      document_type: syslog
+    - 
+      paths:
+          - /var/host/log/secure*
+      document_type: syslog-secure
+    - 
+      paths:
+          - /var/host/log/cron*
+      document_type: syslog-cron
+output:
+  logstash:
+    hosts: ["logstash:5044"]
+shipper:
+  name: n31
+logging:
+  files:
+    rotateeverybytes: 10485760 # = 10MB
