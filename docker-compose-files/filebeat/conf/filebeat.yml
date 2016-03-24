@@ -20,6 +20,7 @@ filebeat:
       paths:
           - /var/host/log/cron*
       document_type: syslog-cron
+  registry_file: /etc/registry/mark
 output:
   logstash:
     hosts: ["logstash:5044"]

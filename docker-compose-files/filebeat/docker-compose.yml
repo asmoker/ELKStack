@@ -11,3 +11,4 @@ services:
       - ./conf/filebeat.yml:/etc/filebeat/filebeat.yml
       - /data/logs:/data/logs
       - /var/log:/var/host/log
+      - ./registry:/etc/registry
