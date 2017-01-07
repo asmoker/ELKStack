@@ -6,4 +6,4 @@
 
 ###如何使用
 
-项目的部署及使用方式见 [blog.smoker.cc](http://blog.smoker.cc/docker/20160325.html)
+项目的部署及使用方式见 [https://blog.smoker.cc/](https://blog.smoker.cc/docker/elk-stack-in-docker.html)
